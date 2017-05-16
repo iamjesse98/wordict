@@ -1,0 +1,20 @@
+<md-card>
+		<md-input-container style="width: 100%" id="foc">
+		  <input mdInput placeholder="Enter a word" #word (keyup.enter)="find(word.value)" (blur)="find(word.value); word.value=''" id="sptext">
+		</md-input-container>
+		<button md-mini-fab style="color: #fff;" onclick="startSpeech()"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+		<button md-mini-fab class="su" (click)="find(word.value)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+		<button md-mini-fab class="re" (click)="word.value=''">X</button>
+</md-card>
+
+<md-card>
+	<p *ngIf="boo"><span style="color: #8BC34A;">Similar</span><br>{{ tags.join(', ') }}</p>
+</md-card>
+
+<md-card>
+	<p *ngFor="let ls of lists"><span style="color: #8BC34A">Definition:</span><br>{{ ls.definition }}<br><span style="color: #8BC34A;">Example:</span><br>{{ ls.example }}</p>
+</md-card>
+
+<md-card>
+	made with Angular, Angular-material, urban dictionary api by &lt;Jesse /&gt;
+</md-card>

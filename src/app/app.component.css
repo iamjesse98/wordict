@@ -1,0 +1,11 @@
+.re {
+	background: #F44336;
+}
+
+.su {
+	background: #E91E63;
+}
+
+.re, .su {
+	color: #fff;
+}

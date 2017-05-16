@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wordict</title>
+  <base href="/">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+function startSpeech() { 
+	let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+		recognition.lang = 'en-US';
+		recognition.interimResults = false;
+		recognition.maxAlternatives = 5;
+		recognition.start();
+
+		document.querySelector('#foc').className = 'mat-input-container mat-focused';
+
+		document.querySelector('#sptext').value = ''
+
+		recognition.onresult = function(event) {
+		    //console.log('You said: ', event.results[0][0].transcript);
+		    document.querySelector('#sptext').value = event.results[0][0].transcript
+		};
+  }
+</script>
+</head>
+<body>
+  <h1>Dictionary</h1>
+  <app-root>Loading...</app-root>
+</body>
+</html>
